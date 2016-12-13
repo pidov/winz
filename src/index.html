@@ -1,0 +1,53 @@
+<style>
+    * { 
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 41px 10px 10px 10px;
+        border-radius: 10px;
+    }
+    #title-bar {
+        height: 41px;
+        padding: 3px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+
+    }
+    button {
+        border: none;
+        display: block;
+        float: left;
+        width: 35px;
+        height: 35px;
+        background: red;
+    }
+    #window-buttons {
+         -webkit-app-region: no-drag;
+        float: right;
+    }
+</style>
+
+<div id="title-bar" style="-webkit-app-region: drag">
+    <div id="window-buttons">
+        <button>_</button>
+        <button>o</button>
+        <button>x</button>
+    </div>
+    
+</div>
+<webview id="foo" src="https://www.github.com/" style="display:inline-flex; height:100%;"></webview>
+
+<script>
+
+        const webview = document.getElementById('foo')
+    webview.addEventListener('dom-ready', () => {
+    webview.openDevTools()
+    })
+</script>
